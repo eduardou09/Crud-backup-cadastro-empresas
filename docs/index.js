@@ -114,6 +114,6 @@ function realizarBackup(){
 
     let fazerDownload = document.createElement('a')
     fazerDownload.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(dados);
-    fazerDownload.download = 'backup_Dados.txt'
+    fazerDownload.download = 'backup_Dados.json'
     fazerDownload.click()
 }
