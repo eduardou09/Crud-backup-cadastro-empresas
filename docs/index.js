@@ -1,119 +1,128 @@
-let listaEmpresas = [];
+let listaEmpresas = []; // Inicializa uma lista vazia para armazenar as empresas
 
+// Event listener para o botão de cadastrar
 document.querySelector(`#cadastrar`).addEventListener(`click`, function () {
-    let nome = document.querySelector('#nome').value
-    let cnpj = document.querySelector('#cnpj').value
+    // Pega os valores dos campos de nome e CNPJ
+    let nome = document.querySelector('#nome').value;
+    let cnpj = document.querySelector('#cnpj').value;
 
-
-    if (nome.trim() == '' || cnpj.trim() == '') { // trim serve para verificar antes se tem ou n espaço em branco antes, antes de ver se estão vazias
-        window.alert('preencha os campos corretamente')
-        return
+    // Verifica se algum campo está vazio
+    if (nome.trim() == '' || cnpj.trim() == '') {
+        window.alert('Preencha os campos corretamente');
+        return;
     }
 
+    // Cria um objeto representando a empresa
     let empresa = {
         nome: nome,
         cnpj: cnpj
-    }
+    };
 
-    if (!Array.isArray(listaEmpresas)) { // para ser ver se veerificar se é uma array, se ñ for inicializa como array
+    // Verifica se listaEmpresas não é um array e o inicializa se necessário
+    if (!Array.isArray(listaEmpresas)) {
         listaEmpresas = [];
     }
     
-    listaEmpresas.push(empresa)
+    // Adiciona a nova empresa à lista
+    listaEmpresas.push(empresa);
 
-    document.querySelector('#nome').value = ''
-    document.querySelector('#cnpj').value = ''
+    // Limpa os campos de nome e CNPJ após cadastrar
+    document.querySelector('#nome').value = '';
+    document.querySelector('#cnpj').value = '';
 
+    // Chama a função para mostrar o cadastro na tela
     mostrarCadastro();
+});
 
-    
-
-})
-
-console.log(listaEmpresas)
-
+// Função para mostrar o cadastro na tela
 function mostrarCadastro() {
-    let infoCad = document.querySelector('.info-cad'); // cria uma variavel com o class da div info-cad
-    infoCad.innerHTML = ''; // deixa sem valor 
+    let infoCad = document.querySelector('.info-cad'); // Seleciona a div onde serão mostradas as empresas cadastradas
+    infoCad.innerHTML = ''; // Limpa o conteúdo atual
 
     if (Array.isArray(listaEmpresas)) {
+        // Itera sobre a lista de empresas e cria divs para cada uma delas
         listaEmpresas.forEach((empresa, posicao) => {
             let novaDivEmpresa = document.createElement('div');
             novaDivEmpresa.classList.add('empresas');
 
+            // Cria o conteúdo da div com nome, CNPJ e botões de ação (deletar e editar)
             let conteudoDiv = `<p>${empresa.nome}</p><p>${empresa.cnpj}</p>
             <div class="imgs">
                 <img src="img/icons8-lixo-30.png" onclick="deletarEmpresa(${posicao})">
                 <img src="img/icons8-editar-30.png" onclick="editarEmpresa(${posicao})">
             </div>`;
 
+            // Insere o conteúdo na div e adiciona à div principal
             novaDivEmpresa.innerHTML = conteudoDiv;
             infoCad.appendChild(novaDivEmpresa);
         });
 
-        localStorage.setItem('cadastroSalvo', JSON.stringify(listaEmpresas) )    //LocalStorage so aceita sting, por isso usar 
-}
-}
-
-function recarregarEmpresas(){
-    const empresaDoLocalStorage = localStorage.getItem('cadastroSalvo')
-
-    listaEmpresas = JSON.parse(empresaDoLocalStorage) // transforma de volta a objeto
-    mostrarCadastro()
+        // Salva as empresas no Local Storage
+        localStorage.setItem('cadastroSalvo', JSON.stringify(listaEmpresas));
+    }
 }
 
-recarregarEmpresas()
-
-function deletarEmpresa(posicao){
-    listaEmpresas.splice(posicao, 1) // seleciona quem quer deletar o 1 é quantos intens apartir de dele é pra deletetar ent é 1, pq é só ele
-     
-    mostrarCadastro()
+// Função para recarregar as empresas do Local Storage
+function recarregarEmpresas() {
+    const empresaDoLocalStorage = localStorage.getItem('cadastroSalvo');
+    listaEmpresas = JSON.parse(empresaDoLocalStorage); // Converte os dados de volta para objeto
+    mostrarCadastro();
 }
 
-const filtro = document.querySelector('.filtro')
+recarregarEmpresas(); // Carrega as empresas salvas ao recarregar a página
+
+// Função para deletar uma empresa
+function deletarEmpresa(posicao) {
+    listaEmpresas.splice(posicao, 1); // Remove a empresa na posição especificada
+    mostrarCadastro();
+}
+
+// Função para editar uma empresa
 function editarEmpresa(posicao) {
-    // preenche os campos do input com os valores que foram cadastrados
+    // Preenche os campos de edição com os valores da empresa selecionada
     document.getElementById('editarNome').value = listaEmpresas[posicao].nome;
     document.getElementById('editarCnpj').value = listaEmpresas[posicao].cnpj;
 
+    // Exibe a tela de edição e o filtro para escurecer o fundo
     document.getElementById('telaEdicao').style.display = 'block';
-    filtro.classList.toggle('escondido')
+    filtro.classList.toggle('escondido');
 
+    // Adiciona um evento de clique para confirmar a edição
     document.getElementById('confirmarEdicao').onclick = function () {
         confirmarEdicao(posicao);
     };
 }
 
-
-
+// Função para confirmar a edição de uma empresa
 function confirmarEdicao(posicao) {
     listaEmpresas[posicao].nome = document.getElementById('editarNome').value;
     listaEmpresas[posicao].cnpj = document.getElementById('editarCnpj').value;
-    filtro.classList.toggle('escondido')
+
+    // Esconde a tela de edição e o filtro
+    filtro.classList.toggle('escondido');
     document.getElementById('telaEdicao').style.display = 'none';
 
-    mostrarCadastro();
+    mostrarCadastro(); // Atualiza a exibição das empresas
 }
 
-
+// Event listener para esconder a tela de edição ao clicar no filtro
 filtro.addEventListener('click', function(){
-    filtro.classList.toggle('escondido')
+    filtro.classList.toggle('escondido');
     document.getElementById('telaEdicao').style.display = 'none';
-})
+});
 
+// Função para cancelar a edição de uma empresa
 function cancelarEdicao() {
     document.getElementById('telaEdicao').style.display = 'none';
-    filtro.classList.toggle('escondido')
+    filtro.classList.toggle('escondido');
 }
 
+// Função para realizar o backup dos dados em formato JSON
+function realizarBackup() {
+    let dados = JSON.stringify(listaEmpresas, null, 2); // Converte para JSON com formatação com 2 espaços
 
-
-
-function realizarBackup(){
-    let dados = JSON.stringify(listaEmpresas)
-
-    let fazerDownload = document.createElement('a')
+    let fazerDownload = document.createElement('a');
     fazerDownload.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(dados);
-    fazerDownload.download = 'backup_Dados.txt'
-    fazerDownload.click()
+    fazerDownload.download = 'backup_Dados.json';
+    fazerDownload.click();
 }
