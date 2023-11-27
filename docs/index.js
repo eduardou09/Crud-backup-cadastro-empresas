@@ -15,7 +15,7 @@ document.querySelector(`#cadastrar`).addEventListener(`click`, function () {
         cnpj: cnpj
     }
 
-    if (!Array.isArray(listaEmpresas)) {
+    if (!Array.isArray(listaEmpresas)) { // para ser ver se veerificar se é uma array, se ñ for inicializa como array
         listaEmpresas = [];
     }
     
