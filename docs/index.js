@@ -1,7 +1,10 @@
 let listaEmpresas = []; // Inicializa uma lista vazia para armazenar as empresas
 
+let cadastrarClick = document.querySelector(`#cadastrar`).addEventListener('click',cadastrarEmpresa )
+
 // Event listener para o botão de cadastrar
-document.querySelector(`#cadastrar`).addEventListener(`click`, function () {
+function cadastrarEmpresa() {
+
     // Pega os valores dos campos de nome e CNPJ
     let nome = document.querySelector('#nome').value;
     let cnpj = document.querySelector('#cnpj').value;
@@ -22,7 +25,7 @@ document.querySelector(`#cadastrar`).addEventListener(`click`, function () {
     if (!Array.isArray(listaEmpresas)) {
         listaEmpresas = [];
     }
-    
+
     // Adiciona a nova empresa à lista
     listaEmpresas.push(empresa);
 
@@ -31,11 +34,11 @@ document.querySelector(`#cadastrar`).addEventListener(`click`, function () {
     document.querySelector('#cnpj').value = '';
 
     // Chama a função para mostrar o cadastro na tela
-    mostrarCadastro();
-});
+    mostrarEmpresas();
+}
 
 // Função para mostrar o cadastro na tela
-function mostrarCadastro() {
+function mostrarEmpresas() {
     let infoCad = document.querySelector('.info-cad'); // Seleciona a div onde serão mostradas as empresas cadastradas
     infoCad.innerHTML = ''; // Limpa o conteúdo atual
 
@@ -66,7 +69,7 @@ function mostrarCadastro() {
 function recarregarEmpresas() {
     const empresaDoLocalStorage = localStorage.getItem('cadastroSalvo');
     listaEmpresas = JSON.parse(empresaDoLocalStorage); // Converte os dados de volta para objeto
-    mostrarCadastro();
+    mostrarEmpresas();
 }
 
 recarregarEmpresas(); // Carrega as empresas salvas ao recarregar a página
@@ -74,7 +77,7 @@ recarregarEmpresas(); // Carrega as empresas salvas ao recarregar a página
 // Função para deletar uma empresa
 function deletarEmpresa(posicao) {
     listaEmpresas.splice(posicao, 1); // Remove a empresa na posição especificada
-    mostrarCadastro();
+    mostrarEmpresas();
 }
 
 // Função para editar uma empresa
@@ -102,11 +105,11 @@ function confirmarEdicao(posicao) {
     filtro.classList.toggle('escondido');
     document.getElementById('telaEdicao').style.display = 'none';
 
-    mostrarCadastro(); // Atualiza a exibição das empresas
+    mostrarEmpresas(); // Atualiza a exibição das empresas
 }
 
 // Event listener para esconder a tela de edição ao clicar no filtro
-filtro.addEventListener('click', function(){
+filtro.addEventListener('click', function () {
     filtro.classList.toggle('escondido');
     document.getElementById('telaEdicao').style.display = 'none';
 });
@@ -119,10 +122,14 @@ function cancelarEdicao() {
 
 // Função para realizar o backup dos dados em formato JSON
 function realizarBackup() {
-    let dados = JSON.stringify(listaEmpresas, null, 2); // Converte para JSON com formatação com 2 espaços
 
-    let fazerDownload = document.createElement('a');
-    fazerDownload.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(dados);
-    fazerDownload.download = 'backup_Dados.json';
-    fazerDownload.click();
+    try {
+        let dados = JSON.stringify(listaEmpresas, null, 2); // Converte para JSON com formatação com 2 espaços
+        let fazerDownload = document.createElement('a');
+        fazerDownload.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(dados);
+        fazerDownload.download = 'backup_Dados.json';
+        fazerDownload.click();
+    } catch (error) {
+        alert('Erro ao realizar o backup', error)
+    }
 }
