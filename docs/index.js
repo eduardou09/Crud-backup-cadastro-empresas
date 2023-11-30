@@ -60,8 +60,7 @@ function mostrarEmpresas() {
             infoCad.appendChild(novaDivEmpresa);
         });
 
-        // Salva as empresas no Local Storage
-        localStorage.setItem('cadastroSalvo', JSON.stringify(listaEmpresas));
+       
     }
 }
 
