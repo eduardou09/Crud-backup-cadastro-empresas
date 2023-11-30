@@ -62,6 +62,7 @@ function mostrarEmpresas() {
             infoCad.appendChild(novaDivEmpresa);
         });
 
+        localStorage.setItem('cadastroSalvo', JSON.stringify(listaEmpresas));
        
     }
 }
