@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ptBR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mobile.css">
+    <title>OrderControl</title>
+</head>
+
+<body>
+    <header>
+        <nav class="">
+            <div class="logo"><img src="/static/_imagens/monitorando 3.png" alt="" id="foto-logo">
+                <h1 id="marca"> Order<span class="color">Control</span></h1>
+            </div>
+            <div class="Tmenu">
+                <div class="menu-btn">
+                    <div class="linha"></div>
+                    <div class="linha"></div>
+                    <div class="linha"></div>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#home">Home</a></button></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#form">Formulario</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="container1" id="home">
+        <article class="hero">
+            <h2>Organizando suas <br>
+                Compras com seus<br> <span id="fornecedores">Fornecedores!</span> </h2>
+            <p>O melhor Software para administrar <br> sua compras com fornecedor</p>
+
+            <a class="primeiro-botao" href="">Como Funcionara</a>
+
+        </article>
+    </section>
+
+
+    <section class="container2">
+        <article class="prototipos">
+            <div class="web"></div>
+            <img src="/static/_imagens/protipo-web.png" alt="" srcset="" id="web">
+            <img src="static/_imagens/Prototipo-celular.png" alt="" srcset="" id="prototipo-cell">
+        </article>
+    </section>
+    
+
+    <section class="container3">
+        <article class="frase">
+            <p>Gerencie suas compras de forma <spam class="color"> Eficaz</spam> e <spam class="color">Organizada</spam>
+                <br>
+                com nosso software Especializado.
+            </p>
+        </article>
+    </section>
+
+    <section class="container4" id="sobre">
+        <article class="informacao">
+            <div class="box-laranja">
+                <div class="buttons-card">
+                    <h3 id="conheca">Conheça mais sobre<br>nosso software</h3>
+                    <div class="only-buttons">
+                        <button id="funci" onclick="laranja()">
+                            <p>Como funcina</p>
+                        </button>
+                        <button id="ideia" onclick="amarelo()">
+                            <p>Como Surgiu a ideia</p>
+                        </button>
+                        <button id="devs" onclick="azul()">
+                            <p>Desenvolvedores</p>
+                        </button>
+                        <button id="mix" onclick="cinza()">
+                            <p id="pretoMIX">Mix <span>UTILIDADES</p></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="info">
+                    <h3 id="titulo-box">Proposito do Software</h3>
+                    <p id="primeiro-parag">O propósito do nosso software é <span> supervisionar o processo de compra com
+                            fornecedor, </span> desde a sua
+                        solicitação até o seu registro no estoque da empresa, salvando automaticamente os documentos de
+                        cada etapa. </p>
+                    <p id="segundo-paraf">A funcionalidade de Métricas Estáticas de Fornecedores é uma parte integrante
+                        do sistema que
+                        oferece à empresa <span> uma visão detalhada e analítica do desempenho dos fornecedores.</span>
+                        Esta
+                        funcionalidade permite que a empresa monitore e avalie o tempo decorrido desde o pedido até a
+                        entrega no estoque,<span> também oferece o tempo dedicado a cada etapa do processo de
+                            fornecimento.
+                    </p>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section class="container5">
+        <article class="etapas">
+
+            <div class="topo">
+                <h2><span class="color">Etapas</span> do processo de compra</h2>
+                <div class="box-etapas">
+                    <h4><span class="color"> Orcamento de compra </span></h4>
+                    <p>Um plano financeiro que estima gastos para comprar bens ou serviços.</p>
+                </div>
+            </div>
+
+            <div class="lin-cell"><img src="_imagens/line-cell.png" alt=""></div>
+
+            <div class="segunda-etapa">
+                <div class="box-etapa2">
+                    <h4><span class="color"> Espelho do pedido</span></h4>
+                    <p>Uma réplica da solicitação de compra para acompanhamento e controle.</p>
+                </div>
+                <img src="_imagens/baixo-esquerda.png" alt="" srcset="" class="line">
+            </div>
+
+            <div class="lin-cell"><img src="_imagens/line-cell.png" alt=""></div>
+
+           <div class="terceira-etapa">
+            <img src="_imagens/direita-baixo.png" alt="" srcset="" class="line">
+            <div class="box-etapa3">
+                <h4><span class="color"> Nota Fiscal</span> </h4>
+                <p>Um comprovante legal de transação que detalha produtos ou serviços comprados.</p>
+            </div>
+           </div>
+
+           <div class="lin-cell"><img src="_imagens/line-cell.png" alt=""></div>
+
+           <div class="quarta-etapa">
+            <div class="box-etapa4">
+                <h4><span class="color"> Agendamento</span></h4>
+                <p>Agendamento é a etapa estão esperando a data pra mercadoria entrar no estoque.
+                </p>
+            </div>
+            <img src="_imagens/baixo-esquerda.png" alt="" srcset="" class="line">
+           </div>
+
+           <div class="lin-cell"><img src="_imagens/line-cell.png" alt=""></div>
+
+
+           <div class="quinta-etapa">
+            <img src="_imagens/direita-baixo.png" class="line">
+            <div class="box-etapa5">
+                <h4><span class="color">Entrada no Estoque</span></h4>
+                <p>É a ultima etapa, é quando o produto entra no sistema da empresa</p>
+            </div>
+           </div>
+            
+            
+            
+        </article>
+    </section>
+
+    <section class="container6">
+        <article class="formulario">
+            <div class="logo-form">
+                <img src="_imagens/monitorando 3.png" alt="" id="foto-logo">
+                <h2>Order<span class="color">Control</span></h2>
+            </div>
+            <h3>Deixei sua opinão</h3>
+            <p>Sua mensagem nos ajuda a deixar nosso software ainda melhor. </p>
+            <form action="https://formspree.io/f/xpzgevgv" method="POST" id="form">
+                <div class="nome">
+                    <p>Nome:</p>
+                    <input type="text" id="nome-input" placeholder="Digite seu nome..." name="nome">
+                </div>
+                <div class="nota">
+                    <p>Nota:</p>
+                    <select id="select-nota" name="nota" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="mensagem">
+                    <p>Digite sua mensagem para nos ajudar a melhorar!</p>
+                    <textarea name="mensagem" cols="30" rows="10" placeholder="Escreva sua mensagem..." required></textarea>
+                </div>
+                <p id="informar">Caso não queira informar o nome, deixe em branco</p>
+                <button class="color-btn">Enviar</button>
+            </form>
+            
+        </article>
+    </section>
+
+        <footer>
+            <p>Desenvolvido por Eduardo Ulysséa</p>
+            <p>Order<span class="color">Control</span></p>
+            <p>E-mail: eduardou09@outlook.com</p>
+            <p>Telefone: (48) 996027191</p>
+       
+            <p>© 2023 Eduardo Ulysséa. Todos os direitos reservados.</p>
+        </footer>
+    <script src="index.js"></script>
+</body>
+
+</html>

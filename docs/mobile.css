@@ -1,0 +1,126 @@
+@media (max-width:1005px ){
+    
+section,
+header{
+        padding: 0 30px;
+    }
+
+    .hero {
+        align-items: center;
+        text-align: center;
+    }
+    #prototipo-cell {
+        display: none;
+    }
+
+    .hero p {
+        padding: 0 20px;
+        border-left: solid var(--laranja-primario) 2px ;
+        border-right:  solid var(--laranja-primario) 2px ;
+    }
+
+    .primeiro-botao {
+        padding: 10px 80px;
+    }
+}
+
+@media (max-width:768px ) {
+    .container2 {
+        display: none;
+    }
+
+
+    .box-laranja {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+
+    #conheca {
+        display: none;
+    }
+
+    .buttons-card {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+
+    .only-buttons {
+        max-width: max-content;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .line {
+        display: none;
+    }
+
+    .topo {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .topo h2 {
+        margin: 0;
+        width: auto;
+        margin-bottom: 35px;
+    }
+
+    .lin-cell {
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+    .lin-cell img {
+        position: relative;
+        top: 2px;
+        margin: 0;
+        padding: 0;
+        height: 30px;
+    }
+
+    .segunda-etapa, .quarta-etapa, .terceira-etapa, .quinta-etapa {
+        margin: 0;
+
+    }
+}
+
+@media (max-width:685px ){
+    #select-nota, #nome-input {
+        margin: 0;
+    }
+
+    .mensagem textarea {
+        width: auto;
+        
+    }
+}
+
+@media (max-width:650px ) {
+
+
+    #marca {
+        font-size: 1.3rem;
+    }
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero p, .hero a, #primeiro-parag, #segundo-paraf, .only-buttons p {
+        font-size: 1rem;
+    }
+
+    .frase p, .topo h2, .formulario h3 {
+        font-size: 1.5rem;
+    }
+    .etapas h4, .logo-form h3  {
+        font-size: 1.4rem;
+    }
+    .formulario p {
+        font-size: .9rem;
+    }
+
+    .color-btn {
+        margin-left: 15px;
+    }
+}
